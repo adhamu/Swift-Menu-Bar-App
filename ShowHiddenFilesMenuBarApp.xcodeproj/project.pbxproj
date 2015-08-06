@@ -326,6 +326,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ShowHiddenFilesMenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -337,6 +338,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ShowHiddenFilesMenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -356,6 +358,7 @@
 				);
 				INFOPLIST_FILE = ShowHiddenFilesMenuBarAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShowHiddenFilesMenuBarApp.app/Contents/MacOS/ShowHiddenFilesMenuBarApp";
 			};
@@ -372,6 +375,7 @@
 				);
 				INFOPLIST_FILE = ShowHiddenFilesMenuBarAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShowHiddenFilesMenuBarApp.app/Contents/MacOS/ShowHiddenFilesMenuBarApp";
 			};
@@ -396,6 +400,7 @@
 				282378A71B7381E600B3CC81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		282378A81B7381E600B3CC81 /* Build configuration list for PBXNativeTarget "ShowHiddenFilesMenuBarAppTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +409,7 @@
 				282378AA1B7381E600B3CC81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
