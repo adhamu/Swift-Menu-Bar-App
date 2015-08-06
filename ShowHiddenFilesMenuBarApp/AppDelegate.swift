@@ -15,6 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
 
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+    let systemDefaultLaunchPath = "/usr/bin/defaults"
+    let systemKillPath = "/usr/bin/killall"
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         let icon = NSImage(named: "statusIcon")
@@ -30,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func toggleHiddenFiles(sender: NSMenuItem) {
         let task = NSTask()
-        task.launchPath = "/usr/bin/defaults"
+        task.launchPath = systemDefaultLaunchPath
         
         if(sender.state == NSOnState) {
             sender.state = NSOffState
@@ -45,7 +47,50 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         task.waitUntilExit()
         
         let killtask = NSTask()
-        killtask.launchPath = "/usr/bin/killall"
+        killtask.launchPath = systemKillPath
+        killtask.arguments = ["Finder"]
+        killtask.launch()
+    }
+    
+    @IBAction func toggleStatusBar(sender: NSMenuItem) {
+        let task = NSTask()
+        task.launchPath = systemDefaultLaunchPath
+        
+        if(sender.state == NSOnState) {
+            sender.state = NSOffState
+            task.arguments = ["write", "com.apple.finder", "ShowStatusBar", "NO"]
+        }
+        else {
+            sender.state = NSOnState
+            task.arguments = ["write", "com.apple.finder", "ShowStatusBar", "YES"]
+        }
+        
+        task.launch()
+        
+        let killtask = NSTask()
+        killtask.launchPath = systemKillPath
+        killtask.arguments = ["Finder"]
+        killtask.launch()
+    }
+    
+    @IBAction func togglePathBar(sender: NSMenuItem) {
+        let task = NSTask()
+        task.launchPath = systemDefaultLaunchPath
+        
+        if(sender.state == NSOnState) {
+            sender.state = NSOffState
+            task.arguments = ["write", "com.apple.finder", "ShowPathbar", "NO"]
+        }
+        else {
+            sender.state = NSOnState
+            task.arguments = ["write", "com.apple.finder", "ShowPathbar", "YES"]
+        }
+        
+        task.launch()
+        task.waitUntilExit()
+        
+        let killtask = NSTask()
+        killtask.launchPath = systemKillPath
         killtask.arguments = ["Finder"]
         killtask.launch()
     }

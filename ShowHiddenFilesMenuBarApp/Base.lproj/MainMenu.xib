@@ -13,7 +13,6 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ShowHiddenFilesMenuBarApp" customModuleProvider="target">
             <connections>
-                <outlet property="menuClicked" destination="0GE-7Z-ciI" id="FUE-Tn-XUI"/>
                 <outlet property="statusMenu" destination="LQF-r0-v2M" id="sSO-ay-f54"/>
             </connections>
         </customObject>
@@ -26,6 +25,18 @@
                         <action selector="toggleHiddenFiles:" target="Voe-Tx-rLC" id="UYo-DS-1Hx"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Toggle Finder status bar" state="on" id="mWp-bv-2FX">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleStatusBar:" target="Voe-Tx-rLC" id="GiC-RW-qQV"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Toggle Finder path bar" state="on" id="vF1-ub-E9z">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="togglePathBar:" target="Voe-Tx-rLC" id="Lag-NM-6GO"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" id="VJ6-je-awS">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -34,7 +45,7 @@
                 </menuItem>
             </items>
             <connections>
-                <outlet property="delegate" destination="0GE-7Z-ciI" id="vce-s3-GRb"/>
+                <outlet property="delegate" destination="vF1-ub-E9z" id="a42-Ne-nhR"/>
             </connections>
             <point key="canvasLocation" x="84.5" y="224.5"/>
         </menu>
