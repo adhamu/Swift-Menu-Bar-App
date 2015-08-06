@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
 
-    @IBAction func menuClicked(sender: NSMenuItem) {
+    @IBAction func toggleHiddenFiles(sender: NSMenuItem) {
         let task = NSTask()
         task.launchPath = "/usr/bin/defaults"
         
@@ -48,6 +48,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         killtask.launchPath = "/usr/bin/killall"
         killtask.arguments = ["Finder"]
         killtask.launch()
+    }
+    
+    @IBAction func quitApp(sender: NSMenuItem) {
+        NSApplication.sharedApplication().terminate(self)
     }
 }
 
