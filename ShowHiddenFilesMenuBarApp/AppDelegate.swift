@@ -94,6 +94,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         killtask.arguments = ["Finder"]
         killtask.launch()
     }
+    @IBAction func toggleDesktopIcons(sender: NSMenuItem) {
+        let task = NSTask()
+        task.launchPath = systemDefaultLaunchPath
+        
+        if(sender.state == NSOnState) {
+            sender.state = NSOffState
+            task.arguments = ["write", "com.apple.finder", "CreateDesktop", "NO"]
+        }
+        else {
+            sender.state = NSOnState
+            task.arguments = ["write", "com.apple.finder", "CreateDesktop", "YES"]
+        }
+        
+        task.launch()
+        task.waitUntilExit()
+        
+        let killtask = NSTask()
+        killtask.launchPath = systemKillPath
+        killtask.arguments = ["Finder"]
+        killtask.launch()
+    }
     
     @IBAction func quitApp(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)

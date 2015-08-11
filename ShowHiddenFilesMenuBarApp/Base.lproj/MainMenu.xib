@@ -19,22 +19,28 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="LQF-r0-v2M">
             <items>
-                <menuItem title="Toggle hidden files" id="0GE-7Z-ciI">
+                <menuItem title="Hidden files" id="0GE-7Z-ciI">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="toggleHiddenFiles:" target="Voe-Tx-rLC" id="UYo-DS-1Hx"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Toggle Finder status bar" state="on" id="mWp-bv-2FX">
+                <menuItem title="Finder status bar" state="on" id="mWp-bv-2FX">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="toggleStatusBar:" target="Voe-Tx-rLC" id="GiC-RW-qQV"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Toggle Finder path bar" state="on" id="vF1-ub-E9z">
+                <menuItem title="Finder path bar" state="on" id="vF1-ub-E9z">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="togglePathBar:" target="Voe-Tx-rLC" id="Lag-NM-6GO"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Desktop icons" state="on" id="2IX-bZ-MFq">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleDesktopIcons:" target="Voe-Tx-rLC" id="C1m-vS-4dK"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Quit" id="VJ6-je-awS">
