@@ -19,30 +19,45 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="LQF-r0-v2M">
             <items>
-                <menuItem title="Hidden files" id="0GE-7Z-ciI">
+                <menuItem title="Finder" id="xJ3-lh-Ixe">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="toggleHiddenFiles:" target="Voe-Tx-rLC" id="UYo-DS-1Hx"/>
-                    </connections>
+                    <menu key="submenu" title="Finder" id="IWk-ec-bGQ">
+                        <items>
+                            <menuItem title="Hidden files" id="0GE-7Z-ciI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleHiddenFiles:" target="Voe-Tx-rLC" id="UYo-DS-1Hx"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Status bar" state="on" id="mWp-bv-2FX">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleStatusBar:" target="Voe-Tx-rLC" id="GiC-RW-qQV"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Path bar" state="on" id="vF1-ub-E9z">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="togglePathBar:" target="Voe-Tx-rLC" id="Lag-NM-6GO"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
-                <menuItem title="Finder status bar" state="on" id="mWp-bv-2FX">
+                <menuItem title="Desktop" id="bHu-0e-7H9">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="toggleStatusBar:" target="Voe-Tx-rLC" id="GiC-RW-qQV"/>
-                    </connections>
+                    <menu key="submenu" title="Desktop" id="dlW-bB-ut7">
+                        <items>
+                            <menuItem title="Show icons" state="on" id="2IX-bZ-MFq">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleDesktopIcons:" target="Voe-Tx-rLC" id="C1m-vS-4dK"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
-                <menuItem title="Finder path bar" state="on" id="vF1-ub-E9z">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="togglePathBar:" target="Voe-Tx-rLC" id="Lag-NM-6GO"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Desktop icons" state="on" id="2IX-bZ-MFq">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="toggleDesktopIcons:" target="Voe-Tx-rLC" id="C1m-vS-4dK"/>
-                    </connections>
-                </menuItem>
+                <menuItem isSeparatorItem="YES" id="2MW-fh-Ilf"/>
                 <menuItem title="Quit" id="VJ6-je-awS">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
