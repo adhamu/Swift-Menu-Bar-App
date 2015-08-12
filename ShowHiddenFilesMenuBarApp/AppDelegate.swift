@@ -29,91 +29,49 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification: NSNotification) {
         
     }
-
-    @IBAction func toggleHiddenFiles(sender: NSMenuItem) {
-        let task = NSTask()
-        task.launchPath = systemDefaultLaunchPath
-        
-        if(sender.state == NSOnState) {
-            sender.state = NSOffState
-            task.arguments = ["write", "com.apple.finder", "AppleShowAllFiles", "NO"]
-        }
-        else {
-            sender.state = NSOnState
-            task.arguments = ["write", "com.apple.finder", "AppleShowAllFiles", "YES"]
-        }
-        
-        task.launch()
-        task.waitUntilExit()
-        
+    
+    func killFinder() {
         let killtask = NSTask()
         killtask.launchPath = systemKillPath
         killtask.arguments = ["Finder"]
         killtask.launch()
+    }
+    
+    func executeCommand(s: NSMenuItem, package: NSString, method: NSString) {
+        let task = NSTask()
+        task.launchPath = systemDefaultLaunchPath
+        
+        if(s.state == NSOnState) {
+            s.state = NSOffState
+            task.arguments = ["write", package, method, "NO"]
+        }
+        else {
+            s.state = NSOnState
+            task.arguments = ["write", package, method, "YES"]
+        }
+        
+        task.launch()
+        task.waitUntilExit()
+    }
+    
+    /* Event Listeners */
+    @IBAction func toggleHiddenFiles(sender: NSMenuItem) {
+        executeCommand(sender, package: "com.apple.finder", method: "AppleShowAllFiles")
+        killFinder()
     }
     
     @IBAction func toggleStatusBar(sender: NSMenuItem) {
-        let task = NSTask()
-        task.launchPath = systemDefaultLaunchPath
-        
-        if(sender.state == NSOnState) {
-            sender.state = NSOffState
-            task.arguments = ["write", "com.apple.finder", "ShowStatusBar", "NO"]
-        }
-        else {
-            sender.state = NSOnState
-            task.arguments = ["write", "com.apple.finder", "ShowStatusBar", "YES"]
-        }
-        
-        task.launch()
-        
-        let killtask = NSTask()
-        killtask.launchPath = systemKillPath
-        killtask.arguments = ["Finder"]
-        killtask.launch()
+        executeCommand(sender, package: "com.apple.finder", method: "ShowStatusBar")
+        killFinder()
     }
     
     @IBAction func togglePathBar(sender: NSMenuItem) {
-        let task = NSTask()
-        task.launchPath = systemDefaultLaunchPath
-        
-        if(sender.state == NSOnState) {
-            sender.state = NSOffState
-            task.arguments = ["write", "com.apple.finder", "ShowPathbar", "NO"]
-        }
-        else {
-            sender.state = NSOnState
-            task.arguments = ["write", "com.apple.finder", "ShowPathbar", "YES"]
-        }
-        
-        task.launch()
-        task.waitUntilExit()
-        
-        let killtask = NSTask()
-        killtask.launchPath = systemKillPath
-        killtask.arguments = ["Finder"]
-        killtask.launch()
+        executeCommand(sender, package: "com.apple.finder", method: "ShowPathbar")
+        killFinder()
     }
     @IBAction func toggleDesktopIcons(sender: NSMenuItem) {
-        let task = NSTask()
-        task.launchPath = systemDefaultLaunchPath
-        
-        if(sender.state == NSOnState) {
-            sender.state = NSOffState
-            task.arguments = ["write", "com.apple.finder", "CreateDesktop", "NO"]
-        }
-        else {
-            sender.state = NSOnState
-            task.arguments = ["write", "com.apple.finder", "CreateDesktop", "YES"]
-        }
-        
-        task.launch()
-        task.waitUntilExit()
-        
-        let killtask = NSTask()
-        killtask.launchPath = systemKillPath
-        killtask.arguments = ["Finder"]
-        killtask.launch()
+        executeCommand(sender, package: "com.apple.finder", method: "CreateDesktop")
+        killFinder()
     }
     
     @IBAction func quitApp(sender: NSMenuItem) {
