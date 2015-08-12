@@ -30,10 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
-    func killFinder() {
+    func kill(task: NSString) {
         let killtask = NSTask()
         killtask.launchPath = systemKillPath
-        killtask.arguments = ["Finder"]
+        killtask.arguments = [task]
         killtask.launch()
     }
     
@@ -57,21 +57,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /* Event Listeners */
     @IBAction func toggleHiddenFiles(sender: NSMenuItem) {
         executeCommand(sender, package: "com.apple.finder", method: "AppleShowAllFiles")
-        killFinder()
+        kill("Finder")
     }
     
     @IBAction func toggleStatusBar(sender: NSMenuItem) {
         executeCommand(sender, package: "com.apple.finder", method: "ShowStatusBar")
-        killFinder()
+        kill("Finder")
     }
     
     @IBAction func togglePathBar(sender: NSMenuItem) {
         executeCommand(sender, package: "com.apple.finder", method: "ShowPathbar")
-        killFinder()
+        kill("Finder")
     }
     @IBAction func toggleDesktopIcons(sender: NSMenuItem) {
         executeCommand(sender, package: "com.apple.finder", method: "CreateDesktop")
-        killFinder()
+        kill("Finder")
     }
     
     @IBAction func quitApp(sender: NSMenuItem) {
